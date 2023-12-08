@@ -1,0 +1,668 @@
+\documentclass[spanish]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Language
+\usepackage[spanish]{babel}
+
+% Support for images
+\usepackage{graphicx}
+
+% Underlining
+\usepackage{amsmath}
+
+% Avoiding indenting of first paragraph's line.
+\setlength{\parindent}{0cm}
+
+% Support for hyperlinks.
+\usepackage{hyperref}
+\hypersetup {
+        linktoc=all,
+        hidelinks
+}
+
+% Additional section formatting.
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+% Cover of the document
+\title{Ingeniería de la usabilidad - Reto 3}
+\author{Oussama Akachach Jouhrati\\[0.5cm]{\small Profesor/a: Mireia Ribera Turró}}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+\newpage
+
+\tableofcontents
+\pagenumbering{arabic}
+\setcounter{page}{2}
+\newpage
+
+
+% Customize from here.
+
+\begin{abstract}
+
+En este reto hemos estado trabajando en la planificación del
+test con usuarios que se realizará en el siguiente reto.
+Aquí, hemos realizado todos los pasos necesarios para
+planificar el test de usuarios para evaluar la usabilidad de
+la web de Freixenet.\newline
+
+Inicialmente, se han entregado los criterios de inclusión y los
+criterios de exclusión para escoger a los usuarios de
+nuestro test. Seguido de ello, se han listado las métricas
+que usaremos para evaluar el test, relacionadas con la
+eficiencia, eficacia y satisfacción y se ha razonado la
+inclusión de dichas métricas.\newline
+
+Por último, hemos escogido las tareas que realizarán
+nuestros usuarios en el test, con una descripción para el
+usuario y una descripción para los entrevistadores o
+entrevistadoras. También se han escrito los documentos que
+ayudarán a la correcta realización del test, como el guión
+del test, el documento de consentimiento informado, las
+hojas de las descripciones de lsa tareas, el documento de la
+encuesta SUS y las hojas de recogida de datos para cada
+tarea.\newline
+
+Como actividad complementaria, se ha realizado una lectura
+opcional y se ha escrito una entrada en el foro
+correspondiente a la tarea.
+
+\end{abstract}
+\newpage
+
+\section{Pregunta 1}
+
+\textit{Entrega los criterios de inclusión y los criterios
+de exclusión.}
+
+\subsection{Criterios de inclusión}
+
+\begin{itemize}
+
+\item Ser mayor de edad (más de dieciocho años).
+
+\item Saber utilizar un navegador web de manera cómoda.
+
+\item Beber alcohol. En concreto, cava o vino.
+
+\item Tener interés en el mundo de la enología.
+
+\item Conocer la marca Freixenet.
+
+\end{itemize}
+
+\subsection{Criterios de exclusión}
+
+\begin{itemize}
+
+\item Tener discapacidades visuales severas (ceguera total o
+parcial, visión borrosa, dificultad de distinción de
+colores...).
+
+\item tener una discapacidad motora que impida al/la
+usuario/a mover las manos.
+
+\item Tener trastornos de déficit de atención.
+
+\item Haber visitado la página recientemente.
+
+\end{itemize}
+
+\section{Pregunta 2}
+
+\textit{Entrega el listado de las métricas, relaciona cada
+una de ellas con eficiencia, eficacia y satisfacción y
+razona su inclusión brevemente (1-2 líneas por
+métrica).}\newline
+
+Consideramos como error:
+
+\begin{itemize}
+
+\item Elegir una página equivocada para la función
+requerida.
+
+\item Introducir datos erróneos en los formularios.
+
+\item Tardar más del tiempo requerido para terminar la
+tarea.
+
+\end{itemize}
+
+Este test de usabilidad se focalizará en:
+
+\begin{itemize}
+
+\item \textbf{Completar una transacción.} Por lo tanto, buscaremos
+que la tarea resulte lo más sencilla posible.
+
+\item \textbf{Navegación.} Por lo que buscamos que la organización de
+la información sea lo más eficiente posible.
+
+\item \textbf{Descubrir problemas.} Puesto que queremos descubrir los
+diferenes casos de error que hay en nuestro producto, para
+resolverlos posteriormente.
+
+\end{itemize}
+
+\subsection{Porcentaje de éxito por tarea}
+
+\textbf{Relación:} Eficacia.\newline
+
+\textbf{Razón:} Necesitamos saber cuántas veces estamos consiguiendo
+éxitos en nuestras tareas para hacernos una idea de la
+eficacia general de nuestro producto.
+
+\subsection{Tiempo medio de finalización de una tarea}
+
+\textbf{Relación:} Eficiencia y satisfacción.\newline
+
+\textbf{Razón:} Queremos que el/la usuario/a encuentre su objetivo,
+pero también buscamos que lo haga en un tiempo razonable. De
+lo contrario, este/a se puede frustrar y abandonar la
+página.
+
+\subsection{Ratio de errores por tarea}
+
+\textbf{Relación:} Eficacia, satisfacción.\newline
+
+\textbf{Razón:} Los/las usuarios/as no esperan encontrar
+errores durante la ejecución de las tareas. Buscamos hacer
+la experiencia lo más intuitiva y fluida posible.
+
+\subsection{Expresión de descontento por tarea}
+
+\textbf{Relación:} Satisfacción.\newline
+
+\textbf{Razón:} Aunque la página ya se ha centrado en
+proveer una experiencia satisfactoria visualmente, buscamos
+que los/las usuarios/as compartan dicha emoción.
+
+\newpage
+
+\section{Pregunta 3}
+
+\textit{Entrega las tres tareas indicando para cada una la
+descripción para el usuario y la descripción interna.}
+
+\subsection{Tarea 1: Compra el cava Reserva Real}
+
+\textbf{Contexto:} Es el cumpleaños de tu padre. Sabes que
+se está interesando mucho por la enología y te gustaría
+regalarle un detalle que refuerce su interés.\newline
+
+\textbf{Descripción para el usuario:} Entra en la página
+``freixenet.es'' y busca la página de compra del Cava
+Reserva Real.\newline
+
+\textbf{Descripción interna:} El/la usuario/a debe entrar en
+la página desde el buscador del navegador web
+duckduckgo.com. Seguido de ello, deberá buscar en el menú la
+opción ``Cavas emblemáticos''. Consiguientemente, el/la
+usuario/a deberá buscar en el listado de cavas la opción
+``Reserva Real''. Por último, el/la usuario/a tendrá que
+pulsar en el botón ``Comprar'' para finalizar la
+tarea.\newline
+
+Cualquier acción que no ocurra en este orden será
+considerada como fallo a anotar y, en caso de que haya
+expresiones verbales negativas por parte del/la usuario/a,
+se anotará dentro de la métrica correspondiente.\newline
+
+La tarea debe realizarse en menos de un minuto y treinta
+segundos.
+
+\subsection{Tarea 2: Haz una reserva para una cata de cavas
+y quesos}
+
+\textbf{Contexto:} Tu aniversario de pareja se acerca y te apetece hacer
+un plan más sofisticado con tu pareja. Estás pensando en
+aprovechar la correspondencia de la Renfe con la casa
+Freixenet y llevarla a hacer una cata este fin de
+semana.\newline
+
+\textbf{Descripción para el usuario:} Entra en la página
+``freixenet.es'' y haz una reserva para una cata de cavas y
+quesos. La reserva será a nombre de Pablo Vallecas y pondrás
+el correo pablovalle8756@gmail.com. Esta reserva será para
+dos adultos, de horario de mañana. La primera preferencia
+de idioma será el catalán y, la segunda, el castellano. La
+fecha de visita es para el 5 de diciembre de 2023. El resto
+de información se puede añadir de la manera que tú creas más
+conveniente.\newline
+
+\textbf{Descripción interna:} El/la usuario/a debe entrar a
+la página desde el buscador google.com. Seguido de ello,
+deberá buscar en el menú la opción ``Enoturismo -
+Actividades enoturísticas''. Consiguientemente, el/la
+usuario/a deberá acercar el ratón al cuadro con el título
+``Cata de cavas y quesos'', y aparecerá visible el botón
+``Información y reservas'', que deberá pulsar para que se
+abra el formulario de reservas. Aquí, deberá introducir
+todos los datos que se le ha indicado y, para los que no,
+deberá responder de una manera coherente al tipo de campo
+seleccionado. La tarea finalizará cuando pulse el botón
+``enviar'' y aparezca el mensaje de confirmación en la
+pantalla del formulario.\newline
+
+La duración de esta tarea es de 5 minutos.\newline
+
+Cualquier acción que no ocurra en este orden será
+considerada como fallo a anotar y, en caso de que haya
+expresiones verbales negativas por parte del/la usuario/a,
+se anotará dentro de la métrica correspondiente.\newline
+
+Además, por cada elemento del formulario escrito de manera
+incorrecta según el tipo de campo contará como dos errores.
+De la misma manera, un error que detecta el formulario
+contará sólo como un error.\newline
+
+En esta tarea se debe prestar especial atención a cómo el/la
+usuario/a introduce el campo ``Fecha de la visita''. Si
+pregunta sobre el formato o no entiende cómo introducir ese
+campo, lo contaremos como expresión negativa del/la
+usuario/a.
+
+\subsection{Tarea 3: Infórmate sobre la historia de la marca}
+
+\textbf{Contexto: } Tantos anuncios de la Renfe sobre la
+casa Freixenet te han despertado la curiosidad sobre cómo
+son exactamente y cómo se formó la empresa.\newline
+
+\textbf{Descripción para el usuario:} busca, dentro de la
+página, información sobre cómo se formó la empresa y cuál es
+su historia.\newline
+
+\textbf{Descripción interna:} El/la usuario/a deberá entrar
+a la página desde el navegador bing.com. Seguido de ello,
+deberá navegar por el menú, hasta encontrar el enlace
+``Descubre Freixenet - Una historia de excelencia''. Una vez
+dentro, si el usuario considera que ya ha llegado, o pulsa
+en un enlace que lleve a más detalles sobre los
+acontecimientos de ese año, consideraríamos la tarea como
+terminada exitosamente.\newline
+
+Cualquier acción que no ocurra en ese orden será considerada
+como fallo a anotar y, en caso de que haya expresiones
+verbales negativas por parte del/la usuario/a, se anotará
+dentro de la métrica correspondiente.\newline
+
+La tarea deberá finalizarse en menos de un minuto.
+
+\newpage
+
+\section{Pregunta 4}
+
+\textit{Entrega todos los documentos indicados y una breve
+explicación de qué es cada uno de ellos (media página).}
+
+\subsection{Guión}
+
+\textbf{Explicación:} Se trata del guión que utilizaremos
+durante el 
+test con usuarios de la página de Freixenet. En este se
+incluye la introducción a la prueba, explicando un poco el
+motivo por el cual se está realizando este test, dando un
+poco de trasfondo sobre lo que es Freixenet por si existe
+algún/a participante que no conozca la marca y exponiendo la
+duración de la prueba, junto con la media de tiempo que se
+espera dedicar a cada tarea.\newline
+
+Seguido de ello, se irán anunciando las tareas, una por una,
+a medida que se vayan completando las actividades a
+realizar.\newline
+
+\textit{Buenos días y bienvenidos. Hoy realizaremos una prueba de
+usabilidad de la página freixenet.es. Esta es la página
+oficial de la marca de venta de cavas y vinos.
+Principalmente, se dedican a esto, pero también hacen otras
+actividades como organizar experiencias y eventos en sus
+bodegas.}\newline
+
+\textit{Esta prueba tiene una duración total de treinta minutos, en
+los cuales haremos tres actividades, de aproximadamente tres
+minutos, cada una.}\newline
+
+\textit{Estas actividades tendrán que ver con diferentes
+funcionalidades que tiene la página y, una vez las
+completemos, o pase el tiempo requerido para hacerlas, o
+queráis abandonar, pasaremos a la siguiente. Os dejaremos
+listo un buscador web para cada tarea, y deberéis empezar la
+actividad desde ahí.}\newline
+
+\textit{Recordad que si tenéis alguna duda, la podéis consultar al
+momento con el entrevistador. Os pedimos intentar verbalizar
+lo máximo posible todo lo que se os vaya pasando por la
+cabeza durante la realización de las pruebas, para tener un
+mayor contexto del procedimiento utilizado para resolver la
+tarea.}\newline
+
+\textit{La primera actividad es la siguiente:
+Entra en la página freixenet.es y busca la página de compra
+del Cava Reserva Real.}\newline
+
+\newpage
+
+\textit{La siguiente actividad es:}\newline
+
+\textit{Entra en la página freixenet.es
+y haz una reserva para una cata de cavas y quesos. La
+reserva será a nombre de Pablo Vallecas y pondrás el correo
+pablovalle8756@gmail.com. Esta reserva será para tres
+adultos, de horario de mañana. La primera preferencia de
+idioma será el castellano y la segunda, el catalán y la
+fecha de visita es para el 5 de diciembre de 2023. El resto
+de información se puede añadir de la manera que tú creas más
+adiente.}\newline
+
+\textit{Y, por último, tenemos la siguiente actividad:
+Busca, dentro de la página, información sobre cómo se formó
+la empresa y cuál es su historia.}\newline
+
+\textit{Para finalizar la actividad, nos gustaría agradecer la
+participación de todas las personas que han acudido. Gracias
+a vuestras contribuciones, seremos capaces de mejorar la
+experiencia de usuario de la página. Queríamos pedir a los
+participantes la realización de una encuesta sobre la
+experiencia que habéis tenido con la página en la ejecución
+de las actividades que hemos hecho hoy. Una vez finalizada,
+habríamos terminado las pruebas en su totalidad.}\newline
+
+\newpage
+
+\subsection{Documento de consentimiento informado}
+
+\textbf{Explicación:} Se trata de un documento que todos/as los/as
+participantes, conforme autorizan a participar en las
+diferentes pruebas que se realizarán y también se autoriza
+la recogida de datos personales con el fin de evaluar la
+usabilidad del producto a probar.
+
+\hspace{2cm}
+
+\begin{center}
+\textbf{CONSENTIMIENTO INFORMADO}
+\end{center}
+
+Yo, $\underset{\text{(Nombre
+completo)}}{\underline{\hspace{6cm}}}$, con
+DNI$\underset{\text{(DNI)}}{\underline{\hspace{3cm}}}$,
+declaro estar en
+conocimiento y acepto mi
+colaboración para la tarea de evaluación de la usabilidad
+del sitio web freixenet.es.\newline
+
+Dicha aplicación será realizada por el alumno Oussama
+Akachach Jouhrati (oakachach@uoc.edu) del máster en
+Ingeniería Informática de la Universitat oberta de
+Catalunya, en el contexto de la asignatura Ingeniería de la
+Usabilidad.\newline
+
+La administración del test requiere una única sesión, en la
+que se realizarán las actividades, junto con una encuesta de
+valoración general, al finalizarlas.\newline
+
+La información recabada será utilizada sólo con fines
+académicos y será confidencial, teniendo acceso a ésta solo
+los estudiantes participantes y el equipo docente de la
+asignatura.\newline
+
+Esta colaboración tiene carácter absolutamente voluntario,
+no estando en la obligación de responder si no se desea, ni
+permanecer más tiempo del acordado.\newline
+
+La responsable de este proceso es Mireia Ribera turró
+(mriberatu@uoc.edu), profesora de la asignatura mencionada.
+Ante cualquier duda, por favor comunicarse con ella.\newline
+
+\hspace{2cm}
+
+Nombre y firma del entrevistado:\newline
+
+\hspace{2cm}
+
+Nombre y forma del entrevistador:\newline
+
+\hspace{2cm}
+
+Barcelona, noviembre de 2023.
+
+\newpage
+
+\subsection{Descripción de las tareas}
+
+\textbf{Explicación:} Esta hoja contiene las descripciones que se
+darán a los usuarios para la realización de las diferentes
+tareas de la prueba. Existe también una versión para los
+entrevistadores, para tener a mano los criterios de
+evaluación de cada tarea.
+
+\subsubsection{Versión de los participantes:}
+
+\textbf{Actividad 1:} Entra en la página freixenet.es y busca la
+página de compra del Cava Reserva Real.\newline
+
+\textbf{Actividad 2:} Entra en la página freixenet.es
+y haz una reserva para una cata de cavas y quesos. La
+reserva será a nombre de Pablo Vallecas y pondrás el correo
+pablovalle8756@gmail.com. Esta reserva será para tres
+adultos, de horario de mañana. La primera preferencia de
+idioma será el castellano y la segunda, el catalán y la
+fecha de visita es para el 5 de diciembre de 2023. El resto
+de información se puede añadir de la manera que tú creas más
+adiente.\newline
+
+\textbf{Actividad 3:} Busca, dentro de la página, información sobre
+cómo se formó la empresa y cuál es su historia.
+
+\subsubsection{Versión de los entrevistadores:}
+
+\textbf{Actividad 1:} El/la usuario/a debe entrar en la
+página desde el buscador del navegador web duckduckgo.com,
+seguido de ello, deberá buscar en el menú la opción ``Cavas
+emblemáticos''. Consiguientemente, el/la usuario/a deberá
+buscar en el listado de cavas la opción ``Reserva Real''. Por
+último, el/la usuario/a tendrá que pulsar en el botón
+``Comprar'' para finalizar la tarea.\newline
+
+Cualquier acción que no ocurra en este orden será
+considerada como fallo a anotar y, en caso de que haya
+expresiones verbales negativas por parte del/la usuario/a,
+se anotará dentro de la métrica correspondiente. La tarea
+debe realizarse en menos de 1 minuto y treinta
+segundos.\newline
+
+\textbf{Actividad 2:} El/la usuario/a debe entrar a la
+página desde el buscador google.com.
+Seguido de ello, deberá buscar en el menú la opción
+``Enoturismo - Actividades enoturísiticas''.
+Consiguientemente, el/la usuario/a deberá acercar el ratón
+al cuadro con el título ``Cata de cavas y chocolate'',
+aparecerá visible el botón 'Información y reservas', que
+deberá pulsar para que se abra el formulario de reservas.
+Aquí, deberá introducir todos los datos que se le ha
+indicado y, para los que no ha indicado, debe responder de
+una manera coherente al tipo de campo seleccionado. La tarea
+finalizará cuando pulse el botón ``Enviar'' y aparezca el
+mensaje de confirmación en la pantalla del
+formulario.\newline
+
+La duración de esta tarea es de 5 minutos.\newline
+
+Cualquier acción que no ocurra en este orden será
+considerada como fallo a anotar y, en caso de que haya
+expresiones verbales negativas por parte del/la usuario/a,
+se anotará dentro de la métrica correspondiente.\newline
+
+Además, por cada elemento del formulario escrito de manera
+incorrecta según el tipo de campo contará como dos errores. De
+la misma manera, un error que detecta el formulario contará
+sólo como un error.\newline
+
+En esta tarea se debe prestar especial atención a cómo el
+usuario introduce el campo ``Fecha de la visita''. Si pregunta
+sobre el formato o no entiende cómo introducir ese campo, lo
+contaremos como expresión negativa del/la usuario/a.\newline
+
+\textbf{Actividad 3:} El usuario/a deberá entrar a la página
+desde el navegador bing.com. Seguido de ello, deberá navegar
+por el menú, hasta encontrar el enlace ``Descubre Freixenet -
+Una historia de excelencia''. Una vez dentro, si el usuario
+considera que ya ha llegado, o pulsa en un enlace que lleve
+a más detalles sobre los acontecimientos de ese año,
+consideraríamos la tarea como terminada
+exitosamente.\newline
+
+Cualquier acción que no ocurra en este orden será
+considerada como fallo a anotar y, en caso de que haya
+expresiones verbales negativas por parte del/la usuario/a,
+se anotará dentro de la métrica correspondiente.\newline
+
+La tarea deberá finalizarse en menos de 1 minuto.\newline
+
+\newpage
+
+\subsection{Encuesta SUS}
+
+\textbf{Explicación:} Encuesta que se realizará después de la prueba
+para evaluar la experiencia general del usuario/a. Se ha
+sustituido la palabra ``sistema'' por ``freixenet.es''.\newline
+
+Puntúa del 1 al 5, siendo 1 ``Completamente en desacuerdo'' y
+5 ``Completamente de acuerdo''.\newline
+
+\begin{itemize}
+
+\item Creo que me gustaría utilizar la página más
+frecuentemente.
+
+\item He encontrado la página innecesariamente compleja.
+
+\item He creído que la página era fácil de usar.
+
+\item Creo que necesitaría la ayuda de una persona técnica para
+utilizar esta página.
+
+\item He encontrado que las diversas funciones de esta página
+estaban bien integradas.
+
+\item He creído que había mucha inconsistencia en esta página.
+
+\item Imagino que la mayoría de usuarios/as aprenderían a usar
+esta página muy rápido.
+
+\item He encontrado el uso de la página muy rebuscado.
+
+\item Me he sentido muy seguro usando la página.
+
+\item He necesitado aprender muchas cosas antes de poder
+avanzar con esta página. 
+
+\end{itemize}
+
+\newpage
+
+\subsection{Hojas de recogida de datos}
+
+\textbf{Explicación:} Este documento se utilizará para anotar la
+información relevante para cada tarea. Habrá un documento
+por cada usuario entrevistado y este contendrá una sección
+para anotar las métricas utilizadas, junto con otra para
+anotar observaciones adicionales, no capturadas en la fase
+de planificación, que podrían ser interesantes a tener en cuenta
+más adelante.\newline
+
+\textit{NOTA: Todos los tiempos se anotarán en segundos.}
+
+\subsubsection{Tarea 1}
+
+Tiempo de finalización:
+
+Número de errores cometidos:
+
+Expresiones de descontento:
+
+\subsubsection{Tarea 2}
+
+Tiempo de finalización:
+
+Número de errores cometidos:
+
+Expresiones de descontento:
+
+\subsubsection{Tarea 3}
+
+Tiempo de finalización:
+
+Número de errores cometidos:
+
+Expresiones de descontento:
+
+\subsubsection{Evaluación final}
+
+Tiempo de finalización:
+
+Número de errores cometidos:
+
+Expresiones de descontento:
+
+Al finalizar las tareas:
+
+Tareas completadas totales: 
+
+Errores cometidos totales:
+
+Expresiones de descontento totales:\newline
+
+Porcentaje de éxito por tarea:
+\(\frac{TareasCompletadas}{3} = \)\newline
+
+Tiempo medio de finalización de una tarea:
+\(\frac{SumaTiemposFinalizacion}{3} = \)\newline
+
+Ratio de errores por tarea:
+\(\frac{SumaErroresCometidos}{3} = \)\newline
+
+Expresiónes de descontento por tarea:
+\(\frac{SumaExpresionesDescontento}{3} = \)\newline
+
+\newpage
+
+\begin{thebibliography}{X}
+
+\item \textit{Design Toolkit | Test con usuarios.} (n.d.).
+Fundación UOC. Noviembre 2023, de
+http://design-toolkit.recursos.uoc.edu/es/test-con-usuarios/
+
+\item Ribera, M. \textit{Caso de estudio resuelto.
+Planificación de un test de usuarios}. Fundación UOC.
+Noviembre 2023, de
+https://materials.campus.uoc.edu/daisy/Materials/PID\textunderscore
+00296954/html5/
+PID\textunderscore 00296954.html\#w31aac13c11c11
+
+\item Ribera Turró, M. (2023). \textit{Orientaciones
+prácticas para el test de usabilidad. Métricas e
+instrumentos.} [Recursi de
+aprendizaje textual]. 1.ª ed. Barcelona: Fundació
+Universitat Oberta de Catalunya (FUOC).
+
+\item Rubin, J., \& Chisnell, D. (2008). \textit{Handbook of
+Usability Testing: How to Plan, Design, and Conduct
+Effective Tests.} John Wiley \& Sons.
+
+\item \textit{Using moderated usability testing - Service
+Manual - GOV.UK.} (2017, October 3).
+https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing\#steps-to-follow
+
+\end{thebibliography}
+
+\end{document}
