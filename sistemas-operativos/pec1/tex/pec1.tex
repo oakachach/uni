@@ -1,0 +1,823 @@
+\documentclass[spanish]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Language
+\usepackage[spanish]{babel}
+
+% Support for images
+\usepackage{graphicx}
+
+% Underlining
+\usepackage{amsmath}
+
+% Avoiding indenting of first paragraph's line.
+\setlength{\parindent}{0cm}
+
+% Support for hyperlinks.
+\usepackage{hyperref}
+\hypersetup {
+        linktoc=all,
+        hidelinks
+}
+
+% Additional section formatting.
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+% Cover of the document
+\title{Sistemas Operativos - PEC 1}
+\author{Oussama Akachach Jouhrati\\
+[0.5cm]{\small Profesor/a: Montserrat Ferrer Serafí}}
+\date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+\newpage
+
+\tableofcontents
+\pagenumbering{arabic}
+\setcounter{page}{2}
+\newpage
+
+% Customize from here.
+
+\section{Ejercicio preliminar}
+
+\textit{Escribe en el espacio en blanco el/los comando/s de
+Linux que permiten realizar la acción que se indica en cada
+apartado. Actualmente, el directorio de trabajo es
+\textbf{Carol}. Si no se dice lo contrario, la solución se
+debe poder escribir en una única línea de comandos en el
+terminal sin utilizar el símbolo ``;'' para separar
+comandos.}\newline
+
+% Empezamos en Carol
+
+\textbf{1. Ir al directorio casa sin utilizar path/camino
+absoluto.}\\
+
+cd ../linuxuser\\
+
+\textbf{2. Mostrar el directorio de trabajo actual.}\\
+
+pwd\\
+
+\textbf{3. Crear un directorio cuyo nombre sea practica en
+el directorio de trabajo actual que corresponde al directorio
+casa.}\\
+
+mkdir practica\\
+
+\textbf{4. Cambiar de directorio e ir al directorio
+Shell-Project utilizando path/camino absoluto.}\\
+
+cd $\sim$/linuxuser/Shell-Project\\
+
+\textbf{5. Crear un fichero no vacío denominado examen.txt, sin
+utilizar editores de texto, en el directorio de trabajo
+actual, que es el directorio Shell-Project}\\
+
+echo 'Fichero no vacío' \(>\) examen.txt\\
+
+\textbf{6. Seguimos en el mismo directorio que en el
+apartado anterior. Añadir el contenido del fichero
+esportistes al contenido del fichero examen.txt sin utilizar
+editores de texto.}\\
+
+cat esportistes \(>>\) examen.txt\\
+
+\textbf{7. Seguimos en el mismo directorio que en el
+apartado anterior. Cambiar al directorio Carol utilizando un
+path/camino relativo.}\\
+
+cd ../../Carol\\
+
+\newpage
+
+\textbf{8. Copiar el contenido del directorio Carol al
+directorio exemples, teniendo en cuenta que el directorio de
+trabajo actual es Carol.}\\
+
+cp -a /. ../linuxuser/exemples/\\
+
+\textbf{9. Cambiar al directorio Shell-Project desde el
+directorio Carol utilizando un path/camino absoluto.}\\
+
+cd $\sim$/linuxuser/Shell-Project\\
+
+\textbf{10. El directorio de trabajo actual es
+Shell-Project. Listar el contenido del directorio exemples
+de tal manera que se muestren los permisos de los ficheros
+utilizando un path/camino relativo.}\\
+
+ls -ld exemples\\
+
+\textbf{11. El directorio de trabajo actual es Shell-Project.
+Mostrar por pantalla el número de ficheros ordinarios que
+hay en este directorio.}\\
+
+ls $\vert$ wc -l\\
+
+\textbf{12. El directorio de trabajo actual es Shell-Project.
+Mostrar por pantalla las líneas del fichero esportistes que
+acaben con Barcelona.}\\
+
+cat esportistes $\vert$ grep 'Barcelona\$'\\
+
+\textbf{13. Cambiar al directorio userlinux.}\\
+
+cd ..\\
+
+\textbf{14. El directorio de trabajo es userlinux. Mostrar el
+contenido del directorio ordenado.}\\
+
+ls -lSr\\
+
+\textit{Al no haber especificado ningún parámetro sobre el
+cual ordenar los elementos listados, se ha decidido utilizar
+la opción -t para listar los contenidos por tamaño, de más
+pequeño, a más grande.}\\
+
+\textbf{15. El directorio de trabajo es userlinux. Cambiar al
+directorio Carol utilizando camino/path relativo.}\\
+
+cd ../Carol\\
+
+\newpage
+
+\textbf{16. El directorio de trabajo es Carol. Añadir al
+fichero mitjana.sh el texto FINAL desde el directorio de
+trabajo actual y utilizando camino/path relativo.}\\
+
+echo 'FINAL' \(>>\) ../linuxuser/Shell-Project/mitjana.sh\\
+
+\textbf{17. Mostrar el contenido del directorio raíz en formato
+largo con path/camino absoluto.}\\
+
+ls -ld \$PWD /*\\
+
+\textbf{18. El directorio de trabajo es Carol. Mostrar las
+líneas del fichero personatges que incluyan el nombre Iron
+Man.}\\
+
+cat personatges $\vert$ grep 'Iron\textbackslash sMan'\\
+
+\textbf{19. Seguimos en el mismo directorio de trabajo que en el
+apartado anterior. Crear un fichero denominado versio2 que
+incluya todos los personajes (líneas) del fichero
+personatges excepto la línea que incluya Iron Man.}\\
+
+cat personatges  $\vert$ grep -v 'Iron\textbackslash sMan' \(>>\)
+versio2\\
+
+\textbf{20. Volver al directorio casa utilizando un comando
+diferente que el utilizado en el apartado 13.}\\
+
+cd $\sim$/userlinux\\
+
+\newpage
+
+\section{Módulo 2}
+
+\textit{Responder justificadamente a las siguientes
+preguntas relacionadas con el módulo 2 de la asignatura.}
+
+\subsection{}
+
+\textit{Una de las tareas de los Sistemas Operativos es la
+de ocultar el hardware a los usuarios y programadores, de
+forma que no se tenga acceso a ciertos elementos del sistema
+que podrían afectar al funcionamiento normal del sistema}\\
+
+\textit{Por otra parte, el software creado por los
+programadores se ejecuta sobre el hardware, el cual no está
+visible mientras que el programador codifica el programa.}\\
+
+\textit{Desde el punto de vista del rendimiento del sistema,
+¿crees que el programador podría codificar el programa de
+una forma óptima si tuvieran acceso a la parte que el
+Sistema Operativo oculta? ¿Crees que se podría controlar el
+acceso a los recursos más críticos? Razona la respuesta.}\\
+
+Considero que la manera en la que están organizados los
+sistemas operativos actualmente beneficia no sólo a los
+programadores, sino también a los usuarios. No creo que,
+desde el punto de vista del rendimiento del sistema, vaya a
+haber una mejora sustancial, al menos, a día de hoy, si como
+programadores tuviésemos acceso a esa parte que el sistema
+operativo oculta.\\
+
+La razón por la cual tengo esta posición es debido a que
+nosotros, como programadores, tenemos la función de resolver
+problemas mediante código y, prescindiendo de la interfaz
+que nos ofrece un sistema operativo, y de la máquina virtual
+definida, nos complicaría más nuestro trabajo, debido a que
+tendríamos que tener en cuenta todas las particularidades
+del hardware con el que trabajamos, además del software a
+programar.\\
+
+Además, es mucho más seguro trabajar de la manera en la que
+los sistemas operativos están definidos, actualmente. Los
+programadores entienden de su materia, pero como todo el
+mundo, somos capaces de cometer errores. La gravedad de
+dichos errores, en caso de ``liberarnos'' de las
+limitaciones de la máquina virtual, haría que fuesen de tipo
+físico (sobrecargar componentes y, debido a ello, dejarlos
+inutilizables), además de los propios digitales (borrar
+permanentemente datos, o cometer errores lógicos dentro del
+problema a resolver).
+
+\newpage
+
+\subsection{}
+
+\textit{Especifica qué cambios de estado (Run, Ready o
+Blocked) provocarían los siguientes eventos sobre los
+procesos en el sistema:}
+
+\subsubsection{}
+
+\textbf{\textit{Un proceso invoca la llamada al sistema que
+lo finaliza.}}\\
+
+De Ready a Run.
+
+\subsubsection{}
+
+\textbf{\textit{Expira el quantum del tiempo asignado al
+proceso.}}\\
+
+De Run a Ready.
+
+\subsubsection{}
+
+\textbf{\textit{El controlador de disco notifica que la
+última petición de lectura está disponible.}}\\
+
+De Blocked a Ready.
+
+\subsection{}
+
+\textit{Las excepciones y las interrupciones provocan un
+corte en el flujo de ejecución del programa en cuestión. Aún
+así, tienen características diferentes. ¿Cuáles son estas
+diferencias? Incluso con estas diferencias, ¿se podrían
+tratar de la misma forma? En caso afirmativo, ¿cuál sería el
+proceso de tratamiento? Razona la respuesta.}\\
+
+La diferencia principal entre una interrupción y una
+excepción es la expectativa; en una interrupción, sabemos la
+razón por la cual el flujo del programa se ha detenido,
+mientras que, en una excepción, se ha detectado un caso
+inesperado o no deseado y, por ello, se ha detenido la
+ejecución del programa.\\
+
+Una interrupción es provocada por el propio hardware,
+mientras que una excepción es provocada por la ejecución del
+código mismo del usuario en curso.\\
+
+Pese a ser paradas de la ejecución de un programa, no se
+podrían tratar de la misma forma, puesto que en una
+interrupción, una vez recibamos el input que el hardware
+necesita para continuar, podríamos proceder con la ejecución
+del programa sin problemas, mientras que en el caso de una
+excepción, no podríamos continuar, ya que hemos encontrado
+un error del cual no nos podemos recuperar.
+
+\subsection{}
+
+\textit{¿Qué tipo de SO es más fácil de modificar y cuál es
+el más eficiente? ¿Uno basado en una filosofía monolítica,
+uno por capas o uno basado en microkernel? Justifica tu
+respuesta.}\\
+
+El tipo de SO que sería más fácil de modificar, sería uno
+basado en capas, debido a que, al tener las diferentes
+funciones descompuestas, es mucho más fácil detectar
+problemas o añadir funcionalidades, ya que existen
+diferentes niveles de abstracción. Por ello, es mucho más
+fácil extender su funcionalidad que si todo estuviese en un
+mismo espacio.\\
+
+Debido a su arquitectura, un SO basado en una filosofía
+monolítica sería mucho más difícil de depurar, extender y
+mantener, por lo que sería mucho más difícil de modificar.\\
+
+El tipo de SO que sería más eficiente sería uno basado en
+una filosofía monolítica, debido a que, a diferencia de sus
+contrapartes, hay bastante menos código requerido para
+diseñarlo, es mucho más fácil de implementar, al ser menos
+complejo que un SO por capas o uno basado en microkernel y,
+al utilizar el mismo espacio de direcciones para los
+servicios de usuario y los del kernel, la ejecución de éste
+es mucho más rápida.
+
+\subsection{}
+
+\textit{Se pide responder justificadamente a las siguientes
+preguntas:}
+
+\subsubsection{}
+
+\textit{Indicad un evento que pueda causar la transición
+desde el estado Run (ejecución) al estado Ready (Preparado,
+Listo). ¿Y desde Ready a Run? ¿Y desde Run a Wait (Bloqueo,
+Espera, Bloqueo)?}\\
+
+Un ejemplo de un evento que cause la transición de Run a
+Ready podría ser la aparición de un proceso que tiene mayor
+prioridad y, debido a varios factores, como podría ser la
+cantidad de tiempo requerido para finalizar el primer
+proceso, este pasa a estado Ready para dejar espacio al
+segundo proceso.\\
+
+Un ejemplo de un evento que cause la transición de Ready a
+Run sería un programa que está listo para su ejecución,
+pero, al haber otros programas ejecutándose previamente, no
+se ha realizado su ejecución inmediatamente, hasta ahora.\\
+
+Un ejemplo de un evento que cause la transición de Run a
+Wait sería un proceso que necesita el input del usuario para
+continuar, como podría ser una operación de cálculo donde
+faltan los operandos.\\
+
+\subsubsection{}
+
+\textit{En un mismo momento en el tiempo, ¿podría haber
+varios procesos en el estado Wait? ¿Y en el estado Ready? ¿Y
+en el estado Run?}
+
+Puede haber varios procesos en el estado Wait y en el
+estado Ready, pero sólo puede haber un proceso en el estado
+Run, puesto que sólo puede haber un proceso por
+procesador.\\
+
+En caso de que haya múltiples procesadores o núcleos de
+procesador en un mismo sistema, entonces sí que podríamos
+tener varios procesos en estado Run.\\
+
+\newpage
+
+\section{Módulo 3}
+
+\subsection{}
+
+\textit{Un sistema de memoria virtual con paginación bajo
+demanda tiene un tamaño de página de 512 palabras, una
+memoria virtual de 16 páginas y una memoria física de 4
+marcos. El contenido actual de la memoria es el sigueinte:}
+
+\begin{center}
+\begin{itemize}
+\item 0: Pág. 4 del proceso P
+\item 1: Pág. 9 del proceso P
+\item 2: Pág. 5 del proceso P
+\item 3: Pág. 1 del proceso P
+\end{itemize}
+\end{center}
+
+\textit{Se pide:}
+
+\subsubsection{}
+
+\textit{Mostrar el contenido de la tabla de páginas.}\\
+
+\begin{center}
+\begin{tabular}{ | c | c | c | }
+Página & Marco & Bit de validez \\
+0 & - & 0 \\
+1 & 0x3 & 1 \\
+2 & - & 0 \\
+3 & - & 0 \\
+4 & 0x0 & 1 \\
+5 & 0x2 & 1 \\
+6 & - & 0 \\
+7 & - & 0 \\
+8 & - & 0 \\
+9 & 0x1 & 1 \\
+10 & - & 0 \\
+11 & - & 0 \\
+12 & - & 0 \\
+13 & - & 0 \\
+14 & - & 0 \\
+15 & - & 0 \\
+\end{tabular}
+\end{center}
+
+\newpage
+
+\subsubsection{}
+
+\textit{Obtener las direcciones físicas correspondientes a
+las siguientes direcciones lógicas: 1628, 851, 2700 y
+2432.}\\
+
+Tamaño de página = 512\\
+
+Número de página = Dirección lógica / Tamaño de página\\
+
+\textit{El número de marco corresponderá al valor de entrada
+del número de página.}\\
+
+Dirección física = Número de marco * Tamaño de página +
+desplazamiento\\
+
+\textbf{1628:}
+
+Número de página = 1628 / 512 = 3\\
+
+Al no haber ningún número de marco para la página 3, no
+tenemos ninguna dirección de memoria física asignada a esa
+dirección lógica.\\
+
+\textbf{851:}
+
+Número de página = 851 / 512 = 1\\
+
+Número de marco (consultado a partir de la tabla de páginas)
+= 3\\
+
+Desplazamiento = 851 \% 512 = 339\\
+
+Dirección física = 3 * 512 + 339 = \textbf{1875}\\
+
+\textbf{2700:}
+
+Número de página = 2700 / 512 = 5\\
+
+Número de marco (consultado a partir de la tabla de páginas)
+= 2\\
+
+Desplazamiento = 2700 \% 512 = 140\\
+
+Dirección física = 2 * 512 + 140 = \textbf{1164}\\
+
+\textbf{2432:}
+
+Número de página = 2432 / 512 = 4\\
+
+Número de marco (consultado a partir de la tabla de páginas)
+= 0\\
+
+Desplazamiento = 2432 \% 512 = 384\\
+
+Dirección física = 0 * 512 + 384 = \textbf{384}
+
+\subsection{}
+
+\textit{Sea un sistema de memoria basado en paginación bajo
+demanda donde el tamaño de la página es de 256KB y el tamaño
+máximo del espacio lógico es de 256MB.}\\
+
+\textit{Sobre este sistema, queremos iniciar la ejecución de
+un archivo ejecutable, que inicialmente ocupa 5 páginas de
+código, 4 páginas de datos inicializadas, 5 páginas de datos
+no inicializadas y 4 páginas de pila.}\\
+
+\textit{Al cargarlo en memoria, el sistema operativo
+determina que, inicialmente, únicamente 6 de sus páginas
+estén presentes en memoria física.}\\
+
+\textit{Con esta información, se pide responder
+justificadamente las siguientes preguntas:}
+
+\subsubsection{}
+
+\textit{¿Cuál es el tamaño aproximado del archivo
+ejecutable?}\\
+
+Un archivo ejecutable está formado por la cabecera, más el
+tamaño del código, más el tamaño de los datos
+inicializados.\\
+
+Tenemos la siguiente información:
+
+\begin{itemize}
+\item Cabecera del ejecutable: desconocido.
+\item 5 páginas de código, a 256KB por página: 256 * 5 =
+1280KB.
+\item 4 páginas de datos inicializados, a 256KB por página:
+256 * 4 = 1024KB.
+\end{itemize}
+
+Por lo tanto:\\
+
+Tamaño del ejecutable = Tamaño de la cabecera + 1280KB +
+1024KB = \textbf{2304KB + Tamaño de la cabecera}.\\
+
+Aproximadamente, el ejecutable será de 2304KB. A esto
+tenemos que sumarle el tamaño de la cabecera, que no lo
+conocemos.
+
+\newpage
+
+\subsubsection{}
+
+\textit{Una vez cargado en memoria y en las condiciones
+descritas, indicar cuál será el número de entradas de la
+tabla de páginas que tendrían que estar marcadas como
+válidas. ¿Y como inválidas? Y como no presentes?}\\
+
+Primero de todo, debemos conocer la cantidad de páginas que
+tiene nuestro sistema. Sabiendo que el espacio lógico total
+es de 256MB y que las páginas son de 256KB:\\
+
+Sabiendo que 1 MB = 1000 KB: 256MB = 256000KB.\\
+
+Número de páginas = Tamaño del espacio lógico / Tamaño de
+una página = 256000 / 256 = 1000 páginas.\\
+
+Sabiendo que el total de páginas que ocupa el archivo,
+teniendo en cuenta todos los tipos, es de 18 páginas, que 9
+de ellas se utilizan en el ejecutable, y que al cargarlo en
+memoria, 6 de las 9 que no forman parte del ejecutable están
+presentes:
+
+\begin{itemize}
+\item 15 páginas estarán marcadas como válidas, puesto que
+tendrán una dirección lógica y una dirección física de memoria asignada.
+\item 3 páginas estarán marcadas como inválidas, puesto que
+tendrán una dirección lógica, pero no tendrán una dirección
+física de memoria asignada.
+\item 982 páginas estarán marcadas como no presentes, puesto
+que no tendrán ni dirección lógica, ni dirección física.
+\end{itemize}
+
+\subsubsection{}
+
+\textit{¿De cuántos bits sería el desplazamiento dentro de
+la página?}\\
+
+Conociendo el tamaño de una página, en bytes: 256 * 1024 =
+262144 bytes.\\
+
+Calcularíamos los bits de desplazamiento con la siguiente
+fórmula:\\
+
+Bits de desplazamiento = \(\log_{2} \textrm{Bytes por
+página} = \log_{2} 262144 = \) \textbf{18 bits}.
+
+\newpage
+
+\section{Módulo 4}
+
+\textit{Responder justificadamente a las siguientes
+preguntas relacionadas con el módulo 4 de la asignatura.}
+
+\subsection{}
+
+\textit{Se pide responder a las siguientes cuestiones
+haciendo uso de comandos UNIX.}
+
+\subsubsection{}
+
+\textit{Obtener los nombres de las cuentas de usuario del
+sistema, ordenados alfabéticamente.}\\
+
+cat /etc/passwd $\vert$ sort\\
+
+El comando cat muestra por pantalla el contenido del archivo
+passwd, el cual utilizamos como entrada para que el comando
+sort ordene el listado de usuarios, donde su opción por
+defecto es ordenarlos alfabéticamente, de manera ascendente.
+
+\subsubsection{}
+
+\textit{Obtener los nombres de cuentas de usuario del
+sistema que contengan alguna letra mayúscula.}\\
+
+cat /etc/passwd $\vert$ sort $\vert$ grep `[A-Z]'\\
+
+El comando cat muestra por pantalla el contenido del archivo
+passwd, el cual utilizamos como entrada para que el comando
+sort ordene el listado de usuarios, donde su opción por
+defecto es ordenarlos alfabéticamente, de manera
+ascendente.\\
+
+Además, utilizamos el comando grep para filtrar los usuarios
+que tengan alguna letra mayúscula mediante la expresión
+regular [A-Z] donde buscamos alguna letra mayúscula como
+coincidencia en cada línea.
+
+\newpage 
+
+\subsubsection{}
+
+\textit{Suponed que tenéis un fichero de texto estructurado
+cuyo nombre es canals con el siguiente contenido:}\\
+
+\textit{10:Futbol:TVE}
+
+\textit{11:Tenis:TDP}
+
+\textit{12:Basquet:TVE}
+
+\textit{13:Patinatge Rodes:TDP}
+
+\textit{14:Patinatge Gel:TDP}
+
+\textit{15:F1:DAZN}\\
+
+\textit{Utilizando dicho fichero indica qué línea de
+comandos (una sola línea sin utilizar ;) se debe ejecutar
+para obtener como resultado lo que se muestra en los
+siguientes apartados:}\\
+
+\textbf{a)}\\
+
+cat canals.txt $\vert$ grep -oP
+`[:]($\backslash$w$\vert$$\backslash$s)+[:]' $\vert$ grep
+-oP `($\backslash$w$\vert$$\backslash$s)+' $\vert$ sort\\
+
+El comando cat lista los contenidos del archivo canals.txt,
+que después filtramos con grep, utilizando una opción que
+nos permite mostrar sólo lo que hayamos capturado con la
+expresión regular escrita, que en este caso busca palabras
+con o sin espacios entre dos puntos (:). Seguido de ello,
+volvemos a filtrar mediante grep, de la misma manera, pero
+esta vez buscando sólo las palabras o espacios, ya que no
+queremos tener los dos puntos a ambos lados del String. Por
+último, utilizamos el comando sort para ordenar
+alfabéticamente de manera ascendente.\\
+
+\textbf{b)}\\
+
+cat canals.txt $\vert$ grep -oP `Patinatge'\\
+
+El comando cat lista los contenidos del archivo canals.txt,
+que después filtramos con grep, utilizando una opción que
+nos permite mostrar sólo lo que hayamos capturado con la
+expresión regular escrita, que en este caso busca la palabra
+``Patinatge''.\\
+
+\textbf{c)}\\
+
+cat canals.txt $\vert$ grep -oP `\textasciicircum[0-9]+'
+$\vert$ sort -r\\
+
+El comando cat lista los contenidos del archivo canals.txt,
+que después filtramos con grep, utilizando una opción que
+nos permite mostrar sólo lo que hayamos capturado con la
+expresión regular escrita, que en este caso busca, en el
+inicio del String, uno o más valores numéricos, que después
+ordena de manera invertida mediante el comando sort y la
+opción -r.
+
+\newpage
+
+\textit{Para los siguientes apartados, indica qué conjunto
+de comandos se debe ejecutar para obtener como resultado lo
+que se muestra en cada apartado.}\\
+
+\textit{Nota: el comando echo se puede utilizar para mostrar
+literalmente los textos marcados en negrita, para el resto
+NO se puede utilizar. Tampoco se pueden utilizar ni bucles
+ni AWK.}\\
+
+\textbf{d)}\\
+
+\textit{TVE	Futbol}
+
+\textit{TDP	Tenis}
+
+\textit{TVE	Basquet}
+
+\textit{TDP	Patinatge Rodes}
+
+\textit{TDP	Patinatge Gel}
+
+\textit{DAZN	F1}\\
+
+paste \(<\)(cut -d `:' -f3 canals.txt) \(<\)(cut -d `:' -f2
+canals.txt)\\
+
+Aquí estamos utilizando el comando paste, al que le pasamos
+como argumentos los output de los comandos cut, utilizando
+delimitadores de dos puntos (:), para poner en primer lugar
+el campo 3 (-f3) y, en segundo lugar, el campo 2 (-f2) del
+archivo canals.txt.\\
+
+\textbf{e)}\\
+
+\textit{Patinatge Gel}
+
+\textit{Patinatge Rodes}
+
+\textit{Tenis}\\
+
+cat canals.txt $\vert$ grep -oP
+`(Patinatge$\vert$Tenis)($\backslash$w$\vert$$\backslash$s)*'
+$\vert$ sort\\
+
+El comando cat lista los contenidos del archiov canals.txt,
+que después filtramos con grep, utilizando una opción que
+nos permite mostrar sólo lo que hayamos capturado con la
+expresión regular escrita, que en este caso busca las
+palabras ``Patinatge'' o ``Tenis'', seguidas de palabras o
+espacios. Seguido de ello, ordenamos el listado
+alfabéticamente de manera ascendente mediante el comando
+sort.
+
+\newpage
+
+\textbf{f)}\\
+
+\textit{\textbf{TDP:}3}
+
+\textit{\textbf{TVE:}2}
+
+\textit{\textbf{DAZN:}1}\\
+
+paste \(<\)(cut -d ` ' -f8 \(<\)(cut -d `:' -f3 canals.txt
+$\vert$ sort $\vert$ uniq -c $\vert$ sort -r)) \(<\)(cut -d
+` ' -f7 \(<\)(cut -d `:' -f3 canals.txt $\vert$ sort $\vert$
+uniq -c $\vert$ sort -r)) -d `:'\\
+
+En esta fila de comandos hacemos algo parecido al ejemplo d,
+en el cual utilizamos el comando paste, pasándole como
+argumentos las salidas de dos comandos cut, que tienen
+dentro un comando cut, de una tabla generada a partir de la
+ejecución del comando uniq -c, que lista, si están
+ordenados los valores, el número de veces que aparecen en la
+salida. Esto lo hacemos para poder cambiar el orden de la
+salida de este comando, siendo el nombre del canal primero,
+seguido del número de veces que aparece. Finalmente,
+realizamos una delimitación por los dos puntos (:).
+
+\subsection{}
+
+\textit{¿Son verdaderas o falsas las siguientes
+afirmaciones? Justifícalas.}
+
+\subsubsection{}
+
+\textbf{\textit{El software que necesitan los dispositivos
+virtuales para poder funcionar no genera ningún tipo de
+efecto negativo en el sistema.}}\\
+
+Falso. Al poder utilizarse de la misma manera que cualquier
+otro dispositivo, pero sin saber de entrada en qué
+dispositivo en concreto se efectuarán las operaciones que se
+le especifican, existe la posibilidad de efectuar una
+operación no compatible con el dispositivo al que se vaya a
+asociar.\\
+
+Esto no tiene por qué ocurrir si se utilizan operaciones
+uniformes de los diferentes posibles dispositivos lógicos a
+los que se vaya a asociar posteriormente.
+
+\subsubsection{}
+
+\textbf{\textit{Los dispositivos virtuales proporcionan
+``independencia''.}}\\
+
+Verdadero. Los dispositivos virtuales, al poder asociarse al
+dispositivo lógico, permiten independizar la acción de los
+programas respecto de los dispositivos que utilizan y de las
+operaciones con las que se dirigen.\\
+
+Esta asociación puede ocurrir durante la ejecución del
+programa o en el instante en el que inicia su ejecución.\\
+
+De todos modos, aparte de utilizar dispositivos virtuales,
+debemos tener en cuenta que no se deben utilizar operaciones
+específicas de los dispositivos concretos a los que se
+asocian.\\
+
+En resumen, los dispositivos virtuales proporcionan
+independencia, pero de nada sirve si utilizamos operaciones
+específicas, en lugar de las genéricas, ya que no tendremos
+el mismo grado de compatibilidad.
+
+\newpage
+
+\begin{thebibliography}{X}
+
+\item Herrero Zaragoza, J., Marzo i Lázaro, J., Morancho
+Llena, E., (2014). \textit{El sistema operativo: una máquina
+virtual}. [Recurso de aprendizaje textual]. Fundació
+Universitat Oberta de Catalunya (FUOC).
+
+\item Herrero Zaragoza, J., Morancho Llena, E., Royo Vallés,
+D., (2014). \textit{Introducción a los sistemas operativos}.
+[Recurso de aprendizaje textual]. Fundació Universitat
+Oberta de Catalunya (FUOC).
+
+\item Herrero Zaragoza, J., Morancho Llena, E., Royo Vallés,
+D. (2014). \textit{La gestión de la memoria.} [Recurso de
+aprendizaje textual]. Fundació Universitat Oberta de
+Catalunya (FUOC).
+
+\item Herrero Zaragoza, J., Jové Lagunas, T., Morancho
+Llena, E., (2014). \textit{Entrada/Salida}. [Recurso de
+aprendizaje textual]. Fundació Universitat Oberta de
+Catalunya (FUOC).
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,2 @@
+El resultado de sumar 42 + 45 = 87
+El resultado de sumar 2 + 2 = 4

@@ -1,0 +1,6 @@
+El resultado de sumar 5 + 5 = 10
+
+El resultado de sumar 50 + 50 = 100
+El resultado de sumar 2 + 3 = 5
+El resultado de sumar 4 + 3 = 7
+El resultado de sumar 42 + 45 = 87
